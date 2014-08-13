@@ -1766,7 +1766,7 @@ FUNCTION {begin.bib}
   write$ newline$
   "\providecommand{\urlprefix}{URL }"
   write$ newline$
-  "\input{babelbst.tex}" write$ newline$
+  "\input{preambel/babelbst.tex}" write$ newline$
   "\newcommand{\Capitalize}[1]{\uppercase{#1}}" write$ newline$
   "\newcommand{\capitalize}[1]{\expandafter\Capitalize#1}" write$ newline$
 }

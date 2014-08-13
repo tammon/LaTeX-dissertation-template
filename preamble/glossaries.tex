@@ -1,0 +1,41 @@
+%%% Glossar erstellen (Package Glossaries)
+%
+% Syntaxinfo - Glossareintrag:
+% \newglossaryentry{<label>}{<settings>}
+% 
+% <label> setzt die spezifische Abkürzung nach der im Text referenziert werden kann (z.B. mit \gls{<label>})
+%
+% mögliche <settings>:
+% name = {<text>}    setzt den Namen der im Text als Abkürzung angezeigt wird
+% description = {<text>}    Ist die Erklärung der Abkürzung
+% sort = {<text>}    wenn bei der Sortierung des Glossars dieser Text statt der Abkürzung verwendet werden soll
+% plural = {<text>}    Setzt die Abkürzung mit einem spezifischen Plural
+% symbol = {<text>}    Definiert ein bestimmtes Symbol für diese Abkürzung
+%
+% ------------------------------
+% Syntaxinfo - Akronym:
+% \newacronym{<label>}{<abbrv>}{<full>}
+%
+% <label> setzt die spezifische Abkürzung nach der im Text referenziert werden kann (z.B. mit \gls{<label>})
+% <abbrv> setzt den Namen der im Text als Abkürzung angezeigt wird
+% <full> Volle Ausschreibung der Abkürzung
+%
+% Referenzierung
+% \gls{<label>}        Standardreferenzierung fuer Glossar und Akronyme
+% \glspl{<label>}     Pluralreferenzierung
+% \Gls{<label>}       Referenzierung mit großem Anfangsbuchstaben
+% \Glspl{<label>}    Pluralreferenzierung mit großem Anfangsbuchstaben
+% \acrlong{<label>} Akronym Referenzierung kurz
+% \acrshort{<label>}Akronym Referenzierung ausgeschrieben
+% \acrfull{<label>}    Akronym volle ausschreibung mit abkuerzung in klammern
+%
+%
+% Example:
+%
+%\newacronym{html}{HTML}{Hypertext Markup Language}
+%
+%\newglossaryentry{wysiwyg}
+%{
+%    name={WYSIWYG-Editor},
+%    description={is a text editing program in which the written text is directly shown in the way it is supposed to look in a printed or browser computed version.}
+%}
