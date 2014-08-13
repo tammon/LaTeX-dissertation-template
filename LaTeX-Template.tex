@@ -1,0 +1,190 @@
+\documentclass[
+   %draft,     % Entwurfsstadium
+   %final,      % fertiges Dokument
+%%%% --- Schriftgröße ---
+   12pt,
+   %smallheadings,    % kleine Überschriften
+   %normalheadings,   % normale Überschriften
+   %headings=big,       % große Überschriften
+   version=first,
+%%%% --- Sprache ---
+   %ngerman,           % wird an andere Pakete weitergereicht
+%%%% === Seitengröße ===
+   % letterpaper,
+   % legalpaper,
+   % executivepaper,
+   a4paper,
+   % a5paper,
+   % landscap,
+%%%% === Optionen für den Satzspiegel ===
+   %BCOR5mm,          % Zusaetzlicher Rand auf der Innenseite
+   %DIV11,            % Seitengroesse (siehe Koma Skript Dokumentation !)
+   %DIVcalc,         % automatische Berechnung einer guten Zeilenlaenge
+   %1.1headlines,     % Zeilenanzahl der Kopfzeilen
+   %headinclude,     % Kopf einbeziehen
+   %headexclude,      % Kopf nicht einbeziehen
+   %headinclude=false,
+   %version=first,
+   %footinclude,     % Fuss einbeziehen
+   %footexclude,      % Fuss nicht einbeziehen
+   %footinclude=false,
+   %version=first,
+   %mpinclude,       % Margin einbeziehen
+   %mpexclude,        % Margin nicht einbeziehen
+   %mpinclude=false,
+   %version=first,
+   %pagesize,         % Schreibt die Papiergroesse in die Datei.
+                     % Wichtig fuer Konvertierungen
+%%%% === Layout ===
+   oneside,         % einseitiges Layout
+   %twoside,          % Seitenraender für zweiseitiges Layout
+   %onecolumn,        % Einspaltig
+   %twocolumn,       % Zweispaltig
+   %openany,         % Kapitel beginnen auf jeder Seite
+   %openright,        % Kapitel beginnen immer auf der rechten Seite
+                     % (macht nur bei 'twoside' Sinn)
+   %cleardoubleplain,    % leere, linke Seite mit Seitenstil 'plain'
+   %cleardoubleempty,    % leere, linke Seite mit Seitenstil 'empty'
+   %titlepage,        % Titel als einzelne Seite ('titlepage' Umgebung)
+   %notitlepage,     % Titel in Seite integriert
+%%%% --- Absatzeinzug ---
+   %                 % Absatzabstand: Einzeilig,
+   parskip,         % Freiraum in letzter Zeile: 1em
+   %parskip*,        % Freiraum in letzter Zeile: Viertel einer Zeile
+   %parskip+,        % Freiraum in letzter Zeile: Drittel einer Zeile
+   %parskip-,        % Freiraum in letzter Zeile: keine Vorkehrungen
+   %                 % Absatzabstand: Halbzeilig
+   %halfparskip,     % Freiraum in letzter Zeile: 1em
+   %halfparskip*,    % Freiraum in letzter Zeile: Viertel einer Zeile
+   %halfparskip+,    % Freiraum in letzter Zeile: Drittel einer Zeile
+   %halfparskip,     % Freiraum in letzter Zeile: keine Vorkehrungen
+   %                 % Absatzabstand: keiner
+   %parindent,        % Eingerückt (Standard)
+   %parskip=false,
+   %version=first,
+%%%% --- Kolumnentitel ---
+   %headsepline,      % Linie unter Kolumnentitel
+   %headnosepline,   % keine Linie unter Kolumnentitel
+   %footsepline,     % Linie unter Fussnote
+   %footnosepline,   % keine Linie unter Fussnote
+%%%% --- Kapitel ---
+   %chapterprefix,   % Ausgabe von 'Kapitel:'
+   %nochapterprefix,  % keine Ausgabe von 'Kapitel:'
+   %chapterprefix=false,
+   %version=first,
+%%%% === Verzeichnisse (TOC, LOF, LOT, BIB) ===
+   %listof=totoc,%liststotoc,      % Tabellen & Abbildungsverzeichnis ins TOC
+   %index=totoc,%idxtotoc,        % Index ins TOC
+   %bibliography=totoc,%bibtotoc,         % Bibliographie ins TOC
+   %bibliography=totoc
+   %bibtotocnumbered, % Bibliographie im TOC nummeriert
+   %liststotocnumbered, % Alle Verzeichnisse im TOC nummeriert
+   %toc=graduated,%tocindent,        % eingereuckte Gliederung
+   %toc=graduated,
+   %version=first,
+   %tocleft,         % Tabellenartige TOC
+   %listsindent,      % eingereuckte LOT, LOF
+   %listof=graduated,
+   %version=first,
+   %listsleft,       % Tabellenartige LOT, LOF
+   %listof=flat, version=first,
+   %pointednumbers,  % Überschriftnummerierung mit Punkt, siehe DUDEN !
+   %pointlessnumbers, % Überschriftnummerierung ohne Punkt, siehe DUDEN !
+   %numbers=noenddot, 
+   %version=first,
+   %openbib,         % alternative Formatierung des Literaturverzeichnisses
+%%%% === Matheformeln ===
+   %leqno,           % Formelnummern links
+   %fleqn,            % Formeln werden linksbuendig angezeigt
+]{scrreprt}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% KOMA Klassen:                                                 |
+% (Die hier aufgeführten KOMA-Klassen enthalten alle Optionen,  |
+%   Befehle, etc. der Standardklassen)                          |
+%    - scrartcl :  Für Artikel o.ä.                             |
+%    - scrbook  :  Für Bücher o.ä.                              |
+%    - scrreprt :  Für Berichte o.ä.                            |
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -    
+
+
+% - - - - - - - - - - - - - - - - - - - - -
+%
+%                  Input    
+%                  ^^^^^
+\input{preambel/preambel}
+\input{Fonts}
+%%% Neue Befehle
+\input{macros/newcommands}
+\input{macros/TableCommands}
+\input{glossaries}
+%
+% - - - - - - - - - - - - - - - - - - - - - 
+
+% - - - - - - - - - - - - - - - - - - - - -
+%
+%         Command Definitionen    
+%         ^^^^^^^^^^^^^^^^^^^^
+%\renewcommand*{\chapterpagestyle}{chapter}
+%\renewcommand*{\partpagestyle}{empty}
+%
+% - - - - - - - - - - - - - - - - - - - - - 
+
+%% Dokument Beginn %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% - Deckblatt,
+% - Inhaltsverzeichnis,
+% - Hauptteil gegliedert z.B. in
+%   Einleitung, Grundlagen, Experimente, Ergebnisse, Zusammenfassung
+% - Literaturverzeichnis,
+% - Abbildungsverzeichnis (ggf.),
+% - Tabellenverzeichnis (ggf.),
+% - Abkürzungsverzeichnis (ggf.),
+% - Formelverzeichnis (ggf.),
+% - Anhang, (nicht mehr Bestandteil der Arbeit! Wird daher nicht bewertet)
+% - Erklärung der Urheberschaft,
+
+\begin{document}
+
+\input{Title}
+%\clearpage
+%\pagestyle{empty}
+\pagenumbering{Roman}
+\pdfbookmark{\contentsname}{toc}
+\renewcommand*{\chapterpagestyle}{empty}
+
+%%% Verzeichnisse
+\tableofcontents
+\printglossaries
+\cleardoublepage
+\listoffigures
+\addcontentsline{toc}{chapter}{\listfigurename}
+\cleardoublepage
+\listoftables
+\addcontentsline{toc}{chapter}{\listtablename}
+\cleardoublepage
+\lstlistoflistings
+\addcontentsline{toc}{chapter}{\lstlistlistingname}
+
+\clearpage
+%\pagestyle{headings}
+\renewcommand*{\partpagestyle}{empty}
+\renewcommand*{\chapterpagestyle}{plain}
+\pagenumbering{arabic}
+
+
+% Hauptteil
+\input{content/content}
+
+%\input{abkuerzungen}
+
+%\glsaddall
+
+\bibliography{bib/library}
+
+\end{document}
+
+
+
+
+
+
