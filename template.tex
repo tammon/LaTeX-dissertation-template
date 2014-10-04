@@ -21,7 +21,7 @@
    %DIV11,            % Seitengroesse (siehe Koma Skript Dokumentation !)
    %DIVcalc,         % automatische Berechnung einer guten Zeilenlaenge
    %1.1headlines,     % Zeilenanzahl der Kopfzeilen
-   %headinclude,     % Kopf einbeziehen
+   headinclude,     % Kopf einbeziehen
    %headexclude,      % Kopf nicht einbeziehen
    %headinclude=false,
    %version=first,
@@ -37,7 +37,7 @@
                      % Wichtig fuer Konvertierungen
 %%%% === Layout ===
    oneside,         % einseitiges Layout
-   %twoside,          % Seitenraender für zweiseitiges Layout
+%   twoside,          % Seitenraender für zweiseitiges Layout
    %onecolumn,        % Einspaltig
    %twocolumn,       % Zweispaltig
    %openany,         % Kapitel beginnen auf jeder Seite
@@ -99,12 +99,12 @@
 ]{scrreprt}
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-% KOMA Klassen:                                                 |
-% (Die hier aufgeführten KOMA-Klassen enthalten alle Optionen,  |
-%   Befehle, etc. der Standardklassen)                          |
-%    - scrartcl :  Für Artikel o.ä.                             |
-%    - scrbook  :  Für Bücher o.ä.                              |
-%    - scrreprt :  Für Berichte o.ä.                            |
+% KOMA Klassen:                                                
+% (Die hier aufgeführten KOMA-Klassen enthalten alle Optionen, 
+%   Befehle, etc. der Standardklassen)                         
+%    - scrartcl :  Für Artikel o.ä.                            
+%    - scrbook  :  Für Bücher o.ä.                             
+%    - scrreprt :  Für Berichte o.ä.                         
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -    
 
 
@@ -113,9 +113,10 @@
 %                  Input    
 %                  ^^^^^
 \input{preamble/preamble}
+\input{preamble/fonts}
 %%% Neue Befehle
 \input{macros/newcommands}
-\input{macros/TableCommands}
+\input{macros/tableCommands}
 \input{preamble/glossaries}
 %
 % - - - - - - - - - - - - - - - - - - - - - 
@@ -144,44 +145,58 @@
 
 \begin{document}
 
-\input{preamble/Title}
-%\clearpage
-%\pagestyle{empty}
-\pagenumbering{Roman}
-\pdfbookmark{\contentsname}{toc}
-\renewcommand*{\chapterpagestyle}{empty}
+%%% Titelseite einbinden
+    \input{preamble/title} \clearpage \restoregeometry
+    
+    \thispagestyle{empty}
+    \cleardoublepage
+%%% ENDE Titelseite
+
+%%% Format und Layout fuer Verzeichnisse einstellen
+    \pagenumbering{Roman}
+    \renewcommand*{\chapterpagestyle}{empty}
+%%% ENDE Formataenderung
 
 %%% Verzeichnisse
-\tableofcontents
-\printglossaries
-\cleardoublepage
-\listoffigures
-\addcontentsline{toc}{chapter}{\listfigurename}
-\cleardoublepage
-\listoftables
-\addcontentsline{toc}{chapter}{\listtablename}
-\cleardoublepage
-\lstlistoflistings
-\addcontentsline{toc}{chapter}{\lstlistlistingname}
+    \pdfbookmark{\contentsname}{toc} % PDF Verlinkung fuer TOC Eintraege
+    \tableofcontents
+    
+    \printglossaries
+    \clearpage
+    
+    \listoffigures
+    \addcontentsline{toc}{chapter}{\listfigurename}
+    \clearpage
+    
+    \listoftables
+    \addcontentsline{toc}{chapter}{\listtablename}
+    \clearpage
+    
+    \lstlistoflistings
+    \addcontentsline{toc}{chapter}{\lstlistlistingname}
+%%% ENDE Verzeichnisse
 
-\clearpage
-%\pagestyle{headings}
-\renewcommand*{\partpagestyle}{empty}
-\renewcommand*{\chapterpagestyle}{plain}
-\pagenumbering{arabic}
+%%% Format auf normale Nummerierung und Layout zuruecksetzen
+    \clearpage
+    %\pagestyle{headings}
+    \renewcommand*{\partpagestyle}{empty}
+    \renewcommand*{\chapterpagestyle}{plain}
+    \pagenumbering{arabic}
+%%% ENDE Formataenderung
 
-
-% Hauptteil
-\input{content/content}
-
-%\input{abkuerzungen}
+%%% Einbindung Hauptteil
+    \input{content/content}
+%%% ENDE Hauptteil
 
 %\glsaddall
 
-\bibliography{bib/library}
+%%% Bibliographie
+    \clearpage
+    \bibliography{bib/library}
+    \addcontentsline{toc}{chapter}{Bibliography}
+%%% ENDE Bibliographie
 
 \end{document}
-
 
 
 

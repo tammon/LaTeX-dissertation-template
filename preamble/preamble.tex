@@ -1,5 +1,5 @@
 % ------------------------------------------------------------------------
-% LaTeX - Preamble  ******************************************************
+% LaTeX - Preambel  ******************************************************
 % ------------------------------------------------------------------------
 % von: Matthias Pospiech
 % ========================================================================
@@ -49,11 +49,13 @@
 % Calculation with LaTeX
 \usepackage{calc}
 
+\usepackage{mwe}
+
 %%% Doc: ftp://tug.ctan.org/pub/tex-archive/macros/latex/required/babel/babel.pdf
 % Languagesetting
 \usepackage[
 %	german,
-%	ngerman,
+	ngerman,
 	english,
 %	french,
 ]{babel}
@@ -330,7 +332,7 @@
 
 % Basispaket fuer alle Tabellenfunktionen
 % -> wird automatisch durch andere Pakete geladen
-% \usepackage{array}
+\usepackage{array}
 %
 % bessere Abstaende innerhalb der Tabelle (Layout))
 % -------------------------------------------------
@@ -353,10 +355,10 @@
 % ---------------------------
 % Spalten automatischer Breite:
 %%% Doc: Documentation inside dtx Package
-% \usepackage{tabularx}
+%\usepackage{tabularx}
 % -> nach hyperref Laden
 % -> wird von ltxtable geladen
-% \LoadPackageLater{tabularx}
+\LoadPackageLater{tabularx}
 
 
 % Tabellen ueber mehere Seiten
@@ -954,13 +956,50 @@
          showtabs=false,             % Tabs anzeigen ?
          showstringspaces=false      % Leerzeichen in Strings anzeigen ?
  }
+ 
+ \usepackage{color}
+\definecolor{lightgray}{rgb}{.9,.9,.9}
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+\lstdefinelanguage{JavaScript}{
+  keywords={break, case, catch, continue, debugger, default, delete, do, else, false, finally, for, function, if, in, instanceof, new, null, return, switch, this, throw, true, try, typeof, var, void, while, with},
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  sensitive=true
+}
+
+\lstset{
+   language=JavaScript,
+   backgroundcolor=\color{lightgray},
+   extendedchars=true,
+   basicstyle=\footnotesize\ttfamily,
+   showstringspaces=false,
+   showspaces=false,
+   numbers=left,
+   numberstyle=\footnotesize,
+   numbersep=9pt,
+   tabsize=2,
+   breaklines=true,
+   showtabs=false,
+   captionpos=b
+}
+ 
  \lstloadlanguages{% Check Dokumentation for further languages ...
 %         [Visual]Basic
          %Pascal
-         C
+         C,
          %C++
          %XML
-         %HTML
+         HTML,
+         JavaScript
  }
 
 %%% Doc: ftp://tug.ctan.org/pub/tex-archive/macros/latex/contrib/examplep/eurotex_2005_examplep.pdf
@@ -1070,7 +1109,7 @@
    %lines=30,       % enables users to specify \textheight by the number of lines.
 %   includehead,  % includes the head of the page, \headheight and \headsep, into total body.
 %   includefoot,  % includes the foot of the page, \footskip, into body.
-%   includeheadfoot, % sets both includehead and includefoot to true
+   includeheadfoot, % sets both includehead and includefoot to true
    %includemp,    % includes the margin notes, \marginparwidth and \marginparsep, into body
    %includeall,   % sets both includeheadfoot and includemp to true.
    %ignorehead,   % disregards the head of the page, headheight and headsep in determining vertical layout
@@ -1086,11 +1125,11 @@
 %%% Margin
    left=2.5cm,        % left margin (for oneside) or inner margin (for twoside) of total body
                   % alias: lmargin, inner
-   right=2cm,       % right or outer margin of total body
+   right=2.5cm,       % right or outer margin of total body
                   % alias: rmargin outer
-   top=3.5cm,         % top margin of the page.
+   top=2.5cm,         % top margin of the page.
                   % Alias : tmargin
-   bottom=2cm,      % bottom margin of the page
+   bottom=2.5cm,      % bottom margin of the page
                   % Alias : bmargin
 %   hmargin=2.5cm,     % left and right margin. hmargin={ left margin , right margin }
    %vmargin=,     % top and bottom margin. vmargin={ top margin , bottom margin }
@@ -1104,7 +1143,7 @@
    %twoside,       % switches on twoside mode with left and right margins swapped on verso pages.
    %asymmetric,   % implements a twosided layout in which margins are not swapped on alternate pages
                   % and in which the marginal notes stay always on the same side.
-   bindingoffset=5mm,  % removes a specified space for binding
+%   bindingoffset=5mm,  % removes a specified space for binding
 %%% Dimensionen
    %headheight=1cm,  % Alias:  head
    %headsep=0.5cm,     % separation between header and text
@@ -1571,7 +1610,7 @@
 %    \pdfcompresslevel=0
 % \fi
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-% end of preamble
+% end of preambel
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 %\IfPackageLoaded{fancyvrb}{
 %	\DefineShortVerb{\|} % Nur mit fancyvrb zusammen laden!
@@ -1593,6 +1632,12 @@
 \epigraphsize{\normalsize}
 \setlength\epigraphwidth{0.8\textwidth}
 \setlength\epigraphrule{0pt}
+
+% Mit diesem paket koennen Bilder in dem includegraphics makro ueber eine
+% zusaetzliche Option rechts, links oder zentriert dargestellt werden
+% Optionen: right, left, center
+% \includegraphics[right]{image}
+\usepackage{adjustbox} 
 
 % - - - - - - - - - - - - - - - - - - - - -
 %
@@ -1619,6 +1664,6 @@
 %\usepackage{hyperref}    % Notwendig für die Verlinkung von Seiten im PDF (vor allem im TOC) (Bereits eingebunden)
 %\usepackage{verbatim} %%Verwenden des \begin{comment} und \end{comment} (Bereits eingebunden)
 %\usepackage{longtable} %%Zum Darstellen grosser Tabellen
-%\usepackage{lscape} %%Um Seiten im Querformat darstellen zu können    
+%\usepackage{lscape} %%Um Seiten im Querformat darstellen zu können   
 %
 % - - - - - - - - - - - - - - - - - - - - - 
